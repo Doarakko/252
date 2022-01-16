@@ -71,7 +71,7 @@ export async function listWorkingUsersById(): Promise<Map<string, boolean>> {
     return m;
   } catch (error) {
     console.log(error);
-    throw Error('failed to list videos');
+    throw Error('failed to list working users by id');
   }
 }
 
