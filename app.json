@@ -1,0 +1,50 @@
+{
+    "name": "252",
+    "description": "Slack bot that lists people who are still in the office and working using attendance log in Slack channel.",
+    "repository": "https://github.com/Doarakko/252",
+    "keywords": [
+        "bot",
+        "slack bot"
+    ],
+    "env": {
+        "SLACK_APP_TOKEN": {
+            "description": "Enter your Slack app token.",
+            "value": "xapp-aaaa"
+        },
+        "SLACK_BOT_TOKEN": {
+            "description": "Enter your Slack bot token.",
+            "value": "xoxb-bbbb"
+        },
+        "SLACK_CHANNEL_ID": {
+            "description": "Enter Slack id for attendance channel.",
+            "value": "CCCCCC"
+        },
+        "SLACK_IN_OFFICE_MESSAGE": {
+            "description": "Enter message when working in office.",
+            "value": "start in offiece"
+        },
+        "SLACK_OUT_OFFICE_MESSAGE": {
+            "description": "Enter message when finishing work in office.",
+            "value": "end in offiece"
+        },
+        "SLACK_IN_HOME_MESSAGE": {
+            "description": "Enter message when work in home.",
+            "value": "start in home"
+        },
+        "SLACK_OUT_HOME_MESSAGE": {
+            "description": "Enter message when finishing work in home.",
+            "value": "end in home"
+        }
+    },
+    "buildpacks": [
+        {
+            "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}

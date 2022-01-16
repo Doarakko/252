@@ -1,0 +1,33 @@
+{
+  "name": "252",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/app.js",
+    "dev": "npm run build:live",
+    "build": "tsc -p .",
+    "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/app.ts",
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx"
+  },
+  "author": "Doarakko",
+  "license": "MIT",
+  "dependencies": {
+    "@slack/bolt": "^3.8.1",
+    "@slack/events-api": "^3.0.1",
+    "@slack/web-api": "^6.5.1",
+    "dotenv": "^12.0.3",
+    "moment-timezone": "^0.5.34"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.8",
+    "@types/slack-node": "^0.1.4",
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "@typescript-eslint/parser": "^5.9.1",
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}

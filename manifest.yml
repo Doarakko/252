@@ -1,0 +1,22 @@
+display_information:
+  name: '252'
+features:
+  bot_user:
+    display_name: '252'
+    always_HOME: true
+oauth_config:
+  scopes:
+    bot:
+      - users:read
+      - channels:history
+      - app_mentions:read
+      - chat:write
+settings:
+  event_subscriptions:
+    bot_events:
+      - app_mention
+  interactivity:
+    is_enabled: true
+  org_deploy_enabled: false
+  socket_mode_enabled: true
+  token_rotation_enabled: false
