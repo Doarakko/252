@@ -1,6 +1,6 @@
 {
     "name": "252",
-    "description": "Slack bot that lists people who are still in the office and working using attendance log in Slack channel.",
+    "description": "Slack bot that sends a message to the last person in the office using attendance log in Slack channel.",
     "repository": "https://github.com/Doarakko/252",
     "keywords": [
         "bot",

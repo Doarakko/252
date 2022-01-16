@@ -13,7 +13,39 @@ const app = new App({
   ignoreSelf: true
 });
 
-app.event('app_mention', async ({ say }) => {
+const r = new RegExp(
+  `${process.env.SLACK_OUT_OFFICE_MESSAGE}|${process.env.SLACK_OUT_HOME_MESSAGE}`
+);
+
+app.message(r, async ({ say }) => {
+  const workingUsers = await attendance.listWorkingUsersById();
+
+  let userId = '';
+  let count = 0;
+  workingUsers.forEach((value, key) => {
+    if (!value) {
+      userId = key;
+      count++;
+    }
+  });
+
+  if (count === 1) {
+    await say(`_ *オフィス内生存者確認ボットです_ * :firefighter:
+
+<@${userId}>
+お仕事お疲れ様です、オフィスにいる最後の生存者です:firefighter:
+戸締まりよろしくお願いします:lock:
+
+【注意事項】
+- <#${process.env.SLACK_CHANNEL_ID}>のメッセージを元にチェックしています
+- リモートからオフィス出社に切り替えられた方がオフィスに残っている可能性があります。戸締まりの際はご注意ください
+- オフィス出社後にリモートに切り替えて未退勤の方にメンションが飛ぶ可能性があります。ご容赦ください`);
+  }
+});
+
+app.event('app_mention', async ({ event, say }) => {
+  console.log(event);
+
   const workingUsers = await attendance.listWorkingUsersById();
   const usernamesById = await attendance.listUsernamesById();
 
@@ -39,8 +71,8 @@ ${message}
 
 【注意事項】
 - <#${process.env.SLACK_CHANNEL_ID}>のメッセージを元にチェックしています
-- リモートからオフィス出社に切り替えられた方はリストアップされません
-- オフィス出社後にリモートに切り替えて未退勤の方はリストアップされてしまいます`);
+- リモートからオフィス出社に切り替えた方がオフィスに残っている可能性があります。リストアップはされないためご注意ください
+- オフィス出社後にリモートに切り替えて未退勤の方もリストアップされてしまいます。ご容赦ください`);
 });
 
 (async () => {

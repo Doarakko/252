@@ -1,12 +1,14 @@
 # 252
 
-Slack bot that lists people who are still in the office and working using attendance log in Slack channel.
-
-Prevents the office from being locked when someone is in the office.
+Slack bot that sends a message to the last person in the office using attendance log in Slack channel.
 
 ![attendance](attendance.png)
 
+You can list people who are still in the office and working.
+
 ![252](252.png)
+
+Prevents the office from being locked when someone is in the office.
 
 ## Requirements
 
