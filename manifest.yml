@@ -3,7 +3,7 @@ display_information:
 features:
   bot_user:
     display_name: '252'
-    always_HOME: true
+    always_online: true
 oauth_config:
   scopes:
     bot:
