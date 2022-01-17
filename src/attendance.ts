@@ -65,6 +65,13 @@ export async function listWorkingUsersById(): Promise<Map<string, boolean>> {
         ) {
           m.set(userId, true);
         }
+        // already notified
+        else if (
+          body.indexOf('お仕事お疲れ様です、オフィスにいる最後の生存者です') !=
+          -1
+        ) {
+          m.set('252', true);
+        }
       }
     }
 

@@ -20,6 +20,11 @@ const r = new RegExp(
 app.message(r, async ({ say }) => {
   const workingUsers = await attendance.listWorkingUsersById();
 
+  // do nothing if already notified
+  if (workingUsers.get('252')) {
+    return;
+  }
+
   let userId = '';
   let count = 0;
   workingUsers.forEach((value, key) => {
@@ -30,9 +35,7 @@ app.message(r, async ({ say }) => {
   });
 
   if (count === 1) {
-    await say(`_ *オフィス内生存者確認ボットです_ * :firefighter:
-
-<@${userId}>
+    await say(`<@${userId}>
 お仕事お疲れ様です、オフィスにいる最後の生存者です:firefighter:
 戸締まりよろしくお願いします:lock:
 
